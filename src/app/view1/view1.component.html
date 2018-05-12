@@ -26,7 +26,7 @@
         </div>
       </div>
        <br>
-      <div *ngIf='!showHide && !hideShow'>
+      <div *ngIf='showHide && !hideShow'>
         <div class="card-header">
           {{houses[i].name}}
         </div>
@@ -40,20 +40,20 @@
         <div class="card-footer text-muted">
           Houses
         </div>
-      </div>
-  
+      </div>  
       <div *ngIf='hide && !showHide && !hideShow'>
         <div class="card-header">
-          {{houses[i].name}}
+
+          {{characters[i].name}}
         </div>
         <div class="card-body">
-          <h5 class="card-title">{{houses[i].coatOfArms}}</h5>
-          <h5 class="card-text">{{houses[i].region}}</h5>
-          <h5 class="card-text"> {{houses[i].coatOfArms}}</h5>
-          <h5 class="card-text"> {{houses[i].overlord}}</h5>
-          <h5 class="card-text">Authorsds:{{houses[i].words}}</h5>
+          <h5 class="card-title">Culture:{{characters[i].culture}}</h5>
+          <h5 class="card-text">Gender:{{characters[i].gender}}</h5>
+          <h5 class="card-text"> Aliase:{{characters[i].aliases[0]}}</h5>
+          <h5 class="card-text"> OverLoad:{{houses[i].overlord}}</h5>
+          <h5 class="card-text">Words:{{houses[i].words}}</h5>
           <br>
-          <a (click)="getViewData()" class="btn btn-primary">Go somewhere</a>
+          <a  class="btn btn-primary">Go somewhere</a>
         </div>
         <div class="card-footer text-muted">
           2 days ago

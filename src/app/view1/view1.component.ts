@@ -46,21 +46,21 @@ export class View1Component implements OnInit {
     console.log("inside view data");
     let info = await this.viewService.getAllData(type).subscribe(res => {
       this.characters = res;
-      this.hideShow = false;
-      this.hide=false;
-     // console.log(res,'char')
+      this.showHide = false;
+      this.hideShow=false;
+       
+      console.log(this.hide)
+      console.log(res,'char')
+ 
   
     });
   }
   async getHousesData(type) {
     console.log("inside view data");
     let info = await this.viewService.getAllData(type).subscribe(res => {
-      this.hideShow=false;
       this.houses = res;
-      this.showHide = false;
-      this.hideShow=false;
-      console.log(res,'houses')
-    
+      this.hideShow = false;
+      this.hide=false;
     });
   }
 }
