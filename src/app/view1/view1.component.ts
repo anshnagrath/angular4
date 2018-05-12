@@ -24,19 +24,8 @@ export class View1Component implements OnInit {
      this.getCharacterData("characters");
   }
 
-  async ngOnInit() {
-    //     await this.viewService.getAllData('books').subscribe((response) => {
-    //       console.log(response,'hehjrbejrjhebrhgbe')
-    //       this.result['books'] = response;
-    //       console.log(this.result,'resuts hercas')
-    //     });
-    //    await this.viewService.getAllData('characters').subscribe((response) => {
-    //       this.result['characters'] = response;
-    //     });
-    //     this.viewService.getAllData('houses').subscribe((response) => {
-    //       this.result['houses'] = response;
-    //     })
-    // console.log(this.result)
+   ngOnInit() {
+  
   }
   async getBooksData(type) {
     console.log("inside view data");
@@ -44,14 +33,14 @@ export class View1Component implements OnInit {
       //this.result[type] = res;
 
       this.books = res;
+      this.authors = res;
+      this.authors.forEach(element => {
+      this.auth = element.authors
+      }); 
       this.hideShow=true;
       this.showHide = false;
       this.hide=false;
-console.log(this.showHide,'show hide'
-              ,this.hide ,'hide')
-
-
-    });
+     });
   }
   async getCharacterData(type) {
     console.log("inside view data");
@@ -59,7 +48,8 @@ console.log(this.showHide,'show hide'
       this.characters = res;
       this.hideShow = false;
       this.hide=false;
-      console.log(this.hideShow,'hideShow',this.hide,'hide')
+     // console.log(res,'char')
+  
     });
   }
   async getHousesData(type) {
@@ -69,7 +59,8 @@ console.log(this.showHide,'show hide'
       this.houses = res;
       this.showHide = false;
       this.hideShow=false;
-      console.log(this.hideShow,'hideshow',this.showHide,'showHIde')
+      console.log(res,'houses')
+    
     });
   }
 }

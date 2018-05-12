@@ -17,7 +17,7 @@
           <h5 class="card-title">Publisher Name:{{book.publisher}}</h5>
           <h5 class="card-title"> Releaded Date:{{book.released | date}}</h5>
           <h5 class="card-title"> Avaliable in :{{book.country}}</h5>
-          <h5 class="card-title">Author:{{book.auth}}</h5>
+          <h5 class="card-title">Author:{{auth}}</h5>
           <br>
           <a class="btn btn-primary">Go somewhere</a>
         </div>
@@ -25,26 +25,24 @@
           Books
         </div>
       </div>
-      <br>
-      <br>
-      <div *ngIf='showHide && !hideShow && !hide'>
+       <br>
+      <div *ngIf='!showHide && !hideShow'>
         <div class="card-header">
           {{houses[i].name}}
         </div>
         <div class="card-body">
-          <h5 class="card-title">{{houses[i].coatOfArms}}</h5>
-          <h5 class="card-text">{{houses[i].region}}</h5>
-          <h5 class="card-text"> {{houses[i].coatOfArms}}</h5>
-          <h5 class="card-text"> {{houses[i].overlord}}</h5>
-          <h5 class="card-text">Author:{{houses[i].words}}</h5>
-          <br>
-          <a (click)="getViewData()" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-text">Region:{{houses[i].region}}</h5>
+          <h5 class="card-text"> Overlord:{{houses[i].overlord}}</h5>
+          <h5 class="card-text">Words:{{houses[i].words}}</h5>
+          <!-- <h5 class="card-text">CoastOfArms:{{houses[i].coatOfArms}}</h5> -->
+          <a  class="btn btn-primary">Go somewhere</a>
         </div>
         <div class="card-footer text-muted">
-          2 days ago
+          Houses
         </div>
       </div>
-      <div *ngIf='!hide && !showHide && !hideShow'>
+  
+      <div *ngIf='hide && !showHide && !hideShow'>
         <div class="card-header">
           {{houses[i].name}}
         </div>
@@ -53,7 +51,7 @@
           <h5 class="card-text">{{houses[i].region}}</h5>
           <h5 class="card-text"> {{houses[i].coatOfArms}}</h5>
           <h5 class="card-text"> {{houses[i].overlord}}</h5>
-          <h5 class="card-text">Author:{{houses[i].words}}</h5>
+          <h5 class="card-text">Authorsds:{{houses[i].words}}</h5>
           <br>
           <a (click)="getViewData()" class="btn btn-primary">Go somewhere</a>
         </div>
