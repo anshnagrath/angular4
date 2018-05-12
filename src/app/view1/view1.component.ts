@@ -58,18 +58,18 @@ console.log(this.books,'sf')
       this.characters = res;
       this.showHide = false;
       this.hideShow=false;
-<<<<<<< HEAD
+
 
       this.characters.forEach((element,i) => {
         element['id']=i;  
       });    
-=======
+
        
       console.log(this.hide)
       console.log(res,'char')
  
   
->>>>>>> 8083019... kjnfnk
+
     });
   }
   async getHousesData(type) {
@@ -78,14 +78,12 @@ console.log(this.books,'sf')
       this.houses = res;
       this.hideShow = false;
       this.hide=false;
-<<<<<<< HEAD
+
 
       this.houses.forEach((element,i) => {
         element['id']=i;  
     })   
 
-=======
->>>>>>> 8083019... kjnfnk
     });
   }
 async getSingleData(index,type){
