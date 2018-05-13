@@ -1,67 +1,31 @@
-<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
-  <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-        <div class="card text-center">
-            <div class="card-header">
-              Featured
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            <div class="card-footer text-muted">
-              2 days ago
-            </div>
-          </div>
-          <div class="card text-center">
-              <div class="card-header">
-                Featured
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-              <div class="card-footer text-muted">
-                2 days ago
-              </div>
-            </div>
-            <div class="card text-center">
-                <div class="card-header">
-                  Featured
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-                <div class="card-footer text-muted">
-                  2 days ago
-                </div>
-              </div>
-              <div class="card text-center">
-                  <div class="card-header">
-                    Featured
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                  <div class="card-footer text-muted">
-                    2 days ago
-                  </div>
-                </div>
-
-
-
-
-
-    </div>
-
-
-
-
+<div *ngIf='this.type == "books"' style="text-align:center"class="container">
+<p>Name:{{data.name}}</p>
+<p>Isbn:{{data.isbn}}</p>
+<p>Author:{{data.authors[0]}}</p>
+<p>NumberOfPages:{{data.numberOfPages}}</p>
+<p>Publisher:{{data.publisher}}</p>
+<p>Country:{{data.country}}</p>
+<p>MediaType:{{data.mediaType}}</p>
+<p> Released:{{data.released | date}}</p>
+  
 </div>
+<div *ngIf='this.type == "houses"' style="text-align:center"class="container">
+    <p *ngIf="data.name.length!=0">Name:{{data.name}}</p>
+    <p *ngIf="data.coatOfArms.length!=0">CoastOfArms:{{data.coatOfArms}}</p>
+    <p *ngIf="data.founded.length!=0">Founded On:{{data.founded}}</p>
+    <p *ngIf="data.region.length!=0">Region:{{data.region}}</p>
+    <p *ngIf="data.seats.length!=0">Seats:{{data.seats[0]}}</p>
+    <p *ngIf="data.titles.length!=0">Title:{{data.titles}}</p>
+    <p *ngIf="data.words.length!=0">Word:{{data.words}}</p>
+      
+    </div>
+    <div *ngIf='this.type == "characters"' style="text-align:center"class="container">
+        <p *ngIf="data.name.length!=0">Name:{{data.name}}</p>
+        <p *ngIf="data.coatOfArms.length!=0">CoastOfArms:{{data.coatOfArms}}</p>
+        <p *ngIf="data.founded.length!=0">Founded On:{{data.founded}}</p>
+        <p *ngIf="data.region.length!=0">Region:{{data.region}}</p>
+        <p *ngIf="data.seats.length!=0">Seats:{{data.seats[0]}}</p>
+        <p *ngIf="data.titles.length!=0">Title:{{data.titles}}</p>
+        <p *ngIf="data.words.length!=0">Word:{{data.words}}</p>
+          
+        </div>

@@ -1,3 +1,18 @@
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button type="button" class="btn btn-outline-secondary">select here</button>
+      <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" >Books</a>
+        <a class="dropdown-item" >Houses</a>
+      </div>
+    <input type="text" [(ngModel)]="data"  class="form-control" aria-label="Text input with segmented dropdown button">
+  </div> 
+  </div>
+
+  <br> <br>
 <div class="tab-content" id="nav-tabContent">
   <div style='text-align: center'>
     <a style='margin-right:10px' (click)='getBooksData("books");this.hideShow=!this.hideShow' class="btn btn-primary"> Books</a>
@@ -6,7 +21,7 @@
   </div>
   <br>
   <br>
-  <div class="tab-pane fade show active col-lg-6" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" *ngFor='let book of books;let i = index'>
+  <div class="tab-pane fade show active col-lg-6" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" *ngFor='let book of books;let i = index '>
     <div class="card text-center">
       <div *ngIf="hideShow">
         <div class="card-header">
@@ -19,7 +34,7 @@
           <h5 class="card-title"> Avaliable in :{{book.country}}</h5>
           <h5 class="card-title">Author:{{auth}}</h5>
           <br>
-          <a class="btn btn-primary">Go somewhere</a>
+          <a (click)="getSingleData(i,'books')"class="btn btn-primary">View Details</a>
         </div>
         <div class="card-footer text-muted">
           Books
@@ -35,7 +50,7 @@
           <h5 class="card-text"> Overlord:{{houses[i].overlord}}</h5>
           <h5 class="card-text">Words:{{houses[i].words}}</h5>
           <!-- <h5 class="card-text">CoastOfArms:{{houses[i].coatOfArms}}</h5> -->
-          <a  class="btn btn-primary">Go somewhere</a>
+          <a (click)="getSingleData(i,'houses')" class="btn btn-primary">View Details </a>
         </div>
         <div class="card-footer text-muted">
           Houses
@@ -53,10 +68,10 @@
           <h5 class="card-text"> OverLoad:{{houses[i].overlord}}</h5>
           <h5 class="card-text">Words:{{houses[i].words}}</h5>
           <br>
-          <a  class="btn btn-primary">Go somewhere</a>
+          <a  class="btn btn-primary" (click)="getSingleData(i,'characters')" >View details</a>
         </div>
         <div class="card-footer text-muted">
-          2 days ago
+         Characters
         </div>
       </div>
 
