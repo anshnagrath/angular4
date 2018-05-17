@@ -25,7 +25,6 @@ private handleError(err: HttpErrorResponse){
 getSingleInfo(type,search){
 let numbi = Number(type)
 let index = numbi +1 ;
-console.log(search,'jhdcvshjdcjhsdh')
   let singleData = this.http.get(this.baseUrl+search+"/"+index);
   return singleData;
 

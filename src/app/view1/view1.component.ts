@@ -4,6 +4,7 @@ import { ViewserviceService } from "../viewservice.service";
 import {ActivatedRoute,Routes, Router} from '@angular/router'
 import { async } from '@angular/core/testing';
 import { SelectModule } from 'ng2-select';
+import {View2Component} from '../view2/view2.component';
 declare var $:any;
 @Component({
   selector: "app-view1",
@@ -13,6 +14,9 @@ declare var $:any;
 })
 export class View1Component implements OnInit {
   public books;
+  // public booksRes;
+  // public houseRes;
+  // public characterRes;
   public items:Array<string>=["books","houses","characters"];
   public save;
   public selectedItem;
@@ -25,10 +29,11 @@ export class View1Component implements OnInit {
   public showHide;
   public hide;
   public houses;
+  public catergories = [{"name":"books"},{"name":"characters"},{"name":"houses"}];
   public searchDisable=true;
   public result = [];
   public store;
-  constructor(private viewService: ViewserviceService,private activatedRoute:ActivatedRoute,private router:Router) {
+  constructor(private view2component:View2Component ,private viewService: ViewserviceService,private activatedRoute:ActivatedRoute,private router:Router) {
       this.showHide=false;
       this.hide=false;
       this.getBooksData("books");
@@ -58,6 +63,7 @@ export class View1Component implements OnInit {
 this.books.forEach((element,i) => {
 
     element['id']=i;  
+    element['type'] = "books"
 })
 console.log(this.books,'sf')
   });
@@ -72,6 +78,7 @@ console.log(this.books,'sf')
 
       this.characters.forEach((element,i) => {
         element['id']=i;  
+          element['type'] = "characters"
       });    
 
        
@@ -88,32 +95,60 @@ console.log(this.books,'sf')
     (this.search&&this.save)?this.searchDisable = false:this.searchDisable = true; 
   }
   async getHousesData(type) {
-    console.log("inside view data");
     let info = await this.viewService.getAllData(type).subscribe(res => {
       this.houses = res;
       this.hideShow = false;
       this.hide=false;
-      
-
-      this.houses.forEach((element,i) => {
+     this.houses.forEach((element,i) => {
         element['id']=i;  
+          element['type'] = "houses"
     })   
 
     });
   }
  getSingleData(index,type){
-  
     this.router.navigate(['/view2',index],{queryParams:{type}})
-    
 }
 
-changeHandler(event:any){
-  console.log(event,'event')
-this.selectedItem=event.target.value;
-console.log(this.selectedItem,'selected item')
+changeHandler(slectordata?){
+this.selectedItem = slectordata
+}
+searchData(search,hit?){
+this.store = search
+if(this.store!= undefined){
+  if(this.store.length>2){
+    (this.store && this.selectedItem)?this.searchDisable=false:this.searchDisable=true;
+  }
 
 }
-searchData(search){
-
+if(search && hit == true){
+  if(this.selectedItem == 'books'){
+  this.books.forEach((element,i) => {
+    if (this.store == element.name){
+      this.selectedItem = JSON.stringify(this.selectedItem)
+      console.log('herer is value',element)
+      element = JSON.stringify(element)
+      this.router.navigate(['/view2'],  {queryParams:{element})
 }
+})
+} 
+    if(this.selectedItem == 'houses'){
+      this.houses.forEach((element,i) => {
+      
+        if (this.store == element.name){
+          this.router.navigate(['/view2'],{queryParams:element})
+     }
+      }) 
+    }
+  
+    if(this.selectedItem == 'characters'){
+      this.characters.forEach((element,i) => {
+        if (this.store == element.name){
+          this.router.navigate(['/view2',element])
+     }
+      }) 
+ }}
 }
+})
+}
+  

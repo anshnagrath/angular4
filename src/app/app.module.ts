@@ -27,12 +27,13 @@ import {SelectModule} from 'ng2-select';
     RouterModule.forRoot([
       {path:'view1',component:View1Component},
       {path:'view2/:id',component:View2Component},
+       {path:'view2',component:View2Component},
       {path:'about',component:AboutComponent},
       {path:'',redirectTo:'view1',pathMatch:'full'},
       {path:'**',component:View1Component}
     ])
   ],
-  providers: [ViewserviceService],
+  providers: [ViewserviceService,View2Component],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

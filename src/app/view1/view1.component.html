@@ -4,21 +4,19 @@
             <div class="input-group ">
               
               <div class="col-md-2">
-                  <button class="caret" type="button" style="width:100%"  class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action
-                  </button>
-                   <ul  class="dropdown-menu">
-                    <li><a (click)="details('books')" >books</a></li>
-                    <li><a (click)="details('houses')">houses</a></li>
-                    <li><a (click)="details('characters')">characters</a></li>
-                  </ul>
-              </div>
+                  <select name='categories'  aria-haspopup="true" aria-expanded="false"  class="btn btn-default dropdown-toggle" (change)="changeHandler($event.target.value)" >
+                      <option  >Select value</option>
+ 
+                   <option  *ngFor="let category of catergories" [value]='category.name'>{{category.name}}</option>
+                 </select>
+                </div>
               <div class="col-md-10">
-                <input  type="text" style="width:100%;margin-left:-40px;"  (ngModelChange)="search" ng-changde="details(search)" class="form-control" aria-label="...">
+                <input  type="text" style="width:100%;margin-left:-40px;" (ngModelChange)='searchData(search)' [(ngModel)]="search"  class="form-control" aria-label="...">
               </div>  
             </div>
             <br>
              <div style='text-align:center' class="container">
-            <button [disabled]='searchDisable' (click)='searchData(search);' class="btn btn-primary">Search</button>
+            <button [disabled]='searchDisable' (click)='searchData(search,true)' class="btn btn-primary">Search</button>
         <div>
           </div><!-- /input-group -->
         </div>
