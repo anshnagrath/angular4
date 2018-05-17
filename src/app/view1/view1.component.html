@@ -1,18 +1,28 @@
 <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <button type="button" class="btn btn-outline-secondary">select here</button>
-      <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="sr-only">Toggle Dropdown</span>
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" >Books</a>
-        <a class="dropdown-item" >Houses</a>
-      </div>
-    <input type="text" [(ngModel)]="data"  class="form-control" aria-label="Text input with segmented dropdown button">
-  </div> 
-  </div>
-
-  <br> <br>
+    <!-- <div class="row"> -->
+        <div class="col-lg-12">
+            <div class="input-group ">
+              
+              <div class="col-md-2">
+                  <button class="caret" type="button" style="width:100%"  class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action
+                  </button>
+                   <ul  class="dropdown-menu">
+                    <li><a (click)="details('books')" >books</a></li>
+                    <li><a (click)="details('houses')">houses</a></li>
+                    <li><a (click)="details('characters')">characters</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-10">
+                <input  type="text" style="width:100%;margin-left:-40px;"  (ngModelChange)="search" ng-changde="details(search)" class="form-control" aria-label="...">
+              </div>  
+            </div>
+            <br>
+             <div style='text-align:center' class="container">
+            <button [disabled]='searchDisable' (click)='searchData(search);' class="btn btn-primary">Search</button>
+        <div>
+          </div><!-- /input-group -->
+        </div>
+  <br> <br><br><br><br>
 <div class="tab-content" id="nav-tabContent">
   <div style='text-align: center'>
     <a style='margin-right:10px' (click)='getBooksData("books");this.hideShow=!this.hideShow' class="btn btn-primary"> Books</a>
