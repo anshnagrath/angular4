@@ -14,9 +14,6 @@ declare var $:any;
 })
 export class View1Component implements OnInit {
   public books;
-  // public booksRes;
-  // public houseRes;
-  // public characterRes;
   public items:Array<string>=["books","houses","characters"];
   public save;
   public selectedItem;
@@ -116,6 +113,7 @@ this.selectedItem = slectordata
 searchData(search,hit?){
 this.store = search
 if(this.store!= undefined){
+  console.log(this.store.length,'herer is the length to define')
   if(this.store.length>2){
     (this.store && this.selectedItem)?this.searchDisable=false:this.searchDisable=true;
   }
@@ -129,7 +127,7 @@ if(search && hit == true){
       console.log('herer is value',element)
       element = JSON.stringify(element)
       this.router.navigate(['/view2'],  {queryParams:{element})
-}
+
 })
 } 
     if(this.selectedItem == 'houses'){
@@ -149,6 +147,6 @@ if(search && hit == true){
       }) 
  }}
 }
-})
+}
 }
   
