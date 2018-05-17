@@ -10,7 +10,7 @@ import { View2Component } from './view2/view2.component';
 import { AboutComponent } from './about/about.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {SelectModule} from 'ng2-select';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +20,7 @@ import {SelectModule} from 'ng2-select';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     Ng2SearchPipeModule,

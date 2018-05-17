@@ -5,6 +5,7 @@ import {ActivatedRoute,Routes, Router} from '@angular/router'
 import { async } from '@angular/core/testing';
 import { SelectModule } from 'ng2-select';
 import {View2Component} from '../view2/view2.component';
+
 declare var $:any;
 @Component({
   selector: "app-view1",
@@ -31,6 +32,7 @@ export class View1Component implements OnInit {
   public result = [];
   public store;
   constructor(private view2component:View2Component ,private viewService: ViewserviceService,private activatedRoute:ActivatedRoute,private router:Router) {
+      
       this.showHide=false;
       this.hide=false;
       this.getBooksData("books");
@@ -126,13 +128,11 @@ if(search && hit == true){
       this.selectedItem = JSON.stringify(this.selectedItem)
       console.log('herer is value',element)
       element = JSON.stringify(element)
-      this.router.navigate(['/view2'],  {queryParams:{element})
+      this.router.navigate(['/view2'],  {queryParams:{element}})
 
-})
-} 
-    if(this.selectedItem == 'houses'){
+}})} 
+if(this.selectedItem == 'houses'){
       this.houses.forEach((element,i) => {
-      
         if (this.store == element.name){
           this.router.navigate(['/view2'],{queryParams:element})
      }
@@ -145,8 +145,9 @@ if(search && hit == true){
           this.router.navigate(['/view2',element])
      }
       }) 
- }}
+ }
 }
+} 
 }
-}
+}}
   
