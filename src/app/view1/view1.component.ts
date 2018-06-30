@@ -149,5 +149,5 @@ if(this.selectedItem == 'houses'){
 }
 } 
 }
-}}
+
   
